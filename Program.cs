@@ -4,67 +4,90 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejercicio11
+namespace Ejercicio_10
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            double parcial1;
-            double parcial2;
-            double examenFinal;
-            double notaPractica;
-            double promedioParciales;
-            double promedio;
+            double celcius;
+            double kelvin;
+            double fahrenheit;
+            double resultado;
+            int num;
             string si;
 
             do
             {
-                Console.WriteLine("Bienvenido al sistema de calificaciones");
-                Console.WriteLine("\nDigitar la nota del primer parcial");
-                parcial1 = Convert.ToDouble(Console.ReadLine());
+                Console.WriteLine("Elige una opcion de conversion");
+                Console.WriteLine("1. De celsius a kelvin");
+                Console.WriteLine("2. De celsius a fahrenheit ");
+                Console.WriteLine("3. De kelvin a celsius");
+                Console.WriteLine("4. De kelvin a fahrenheit");
+                Console.WriteLine("5. De fahrenheit a celsius");
+                Console.WriteLine("6. De fahrenheit a kelvin");
 
-                Console.WriteLine("\nDigitar la nota del segundo parcial");
-                parcial2 = Convert.ToDouble(Console.ReadLine());
+                num = Convert.ToInt32(Console.ReadLine());
 
-                Console.WriteLine("\nDigitar la nota del examen final");
-                examenFinal = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("\nDigitar nota practica");
-                notaPractica = Convert.ToDouble(Console.ReadLine());
-
-                Console.Clear();
-
-                promedioParciales = (parcial1 + parcial2) / 2;
-                promedio = (promedioParciales + notaPractica + examenFinal) / 3;
-
-                if (notaPractica <= 69 || examenFinal <= 54)
+                switch (num)
                 {
-                    Console.WriteLine("\nMateria reprobada");
-                }
-                else if (promedio >= 90)
-                {
-                    Console.WriteLine("\nSu nota literal es A y su promedio es de: " + Math.Round(promedio, 2));
-                }
-                else if (promedio >= 80)
-                {
-                    Console.WriteLine("\nSu nota literal es B y su promedio es de: " + Math.Round(promedio, 2));
-                }
-                else if (promedio >= 70)
-                {
-                    Console.WriteLine("\nSu nota literal es C y su promedio es de: " + Math.Round(promedio, 2));
-                }
-                else if (promedio >= 60)
-                {
-                    Console.WriteLine("\nSu nota literal es D y su promedio es de: " + Math.Round(promedio, 2));
-                }
-                else if (promedio >= 50)
-                {
-                    Console.WriteLine("\nSu nota literal es F y su promedio es de: " + Math.Round(promedio, 2));
-                }
+                    case 1:
+                        Console.WriteLine("Favor inserte grados celsius");
+                        celcius = Convert.ToDouble(Console.ReadLine());
+
+                        resultado = (celcius + 273.15);
+                        Console.WriteLine(" Grados kelvin: " + resultado);
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Favor inserte grados celcius");
+                        celcius = Convert.ToDouble(Console.ReadLine());
 
 
-                Console.WriteLine("\nDesea volver a intentarlo? ");
+                        resultado = ((celcius * 1.8) + 32);
+                        Console.WriteLine("Grados fahrenheit: " + resultado);
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Favor inserte grados kelvin");
+                        kelvin = Convert.ToDouble(Console.ReadLine());
+
+
+                        resultado = (kelvin - 273.15);
+                        Console.WriteLine("Grados celsius: " + resultado);
+                        break;
+
+                    case 4:
+                        Console.WriteLine("Favor inserte grados kelvin");
+                        kelvin = Convert.ToDouble(Console.ReadLine());
+
+
+                        resultado = ((kelvin - 273.15) * 9 / 5 + 32);
+                        Console.WriteLine("Grados fahrenheit: " + resultado);
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Favor inserte grados fahrenheit");
+                        fahrenheit = Convert.ToDouble(Console.ReadLine());
+
+                        resultado = ((fahrenheit - 32) / 1.8);
+                        Console.WriteLine("Grados celcius: " + resultado);
+                        break;
+
+                    case 6:
+                        Console.WriteLine("Favor inserte grados fahrenheit");
+                        fahrenheit = Convert.ToDouble(Console.ReadLine());
+
+                        resultado = ((fahrenheit - 32) * 5 / 9 + 273.15);
+                        Console.WriteLine("Grados kelvin: " + resultado);
+                        break;
+
+
+
+
+                }
+                Console.WriteLine("Desea volver a intentarlo? ");
                 si = Console.ReadLine();
                 Console.Clear();
             }
