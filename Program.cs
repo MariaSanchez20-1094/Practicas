@@ -4,129 +4,132 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejercicio_3
+namespace Ejercicio_5
 {
     internal class Program
     {
         static void Main(string[] args)
         {
             int opcion;
-            double ejercicio1;
-            double ejercicio2;
-
-            Console.Write("Calculo de Area geometricas, selecione la opcion");
-            Console.Write("\n1 - Cubo");
-            Console.Write("\n2 - Esfera");
-            Console.Write("\n3 - Cono");
-            Console.Write("\n4 - Pirámide");
+            int numerador1 = 0;
+            int numerador2 = 0;
+            int denominador1 = 0;
+            int denominador2 = 0;
+            string result = "";
 
             do
             {
+                Console.Write("**Por favor Digite el numerador 1:*** ");
+                numerador1 = int.Parse(Console.ReadLine());
+
+
+                if (numerador1 < 0)
+                {
+                    Console.Write("\nError: Número negativo...\n");
+                }
+
+            } while (numerador1 < 0);
+
+            do
+            {
+                Console.Write("***Por favor Digite el denominador 1:*** ");
+                denominador1 = int.Parse(Console.ReadLine());
+
+
+                if (denominador1 < 0)
+                {
+                    Console.Write("\nError: Número negativo...\n");
+                }
+
+            } while (denominador1 < 0);
+
+            do
+            {
+                Console.Write("***Por favor Digite el numerador 2:**** ");
+                numerador2 = int.Parse(Console.ReadLine());
+
+
+                if (numerador2 < 0)
+                {
+                    Console.Write("\nError: Número negativo...\n");
+                }
+
+            } while (numerador2 < 0);
+
+            do
+            {
+                Console.Write("***Por favor Digite el denominador 2:**** ");
+                denominador2 = int.Parse(Console.ReadLine());
+
+
+                if (denominador2 < 0)
+                {
+                    Console.Write("\nError: Número negativo...\n");
+                }
+
+            } while (denominador2 < 0);
+
+
+            Console.Write("***Operaciones con fraciones, Por Favor selecione la opcion***");
+            Console.Write("\n1 - Suma");
+            Console.Write("\n2 - Resta");
+            Console.Write("\n3 - Multiplicación");
+            Console.Write("\n4 - Division\n");
+
+            do
+            {
+
                 opcion = int.Parse(Console.ReadLine());
 
                 switch (opcion)
                 {
-                    cs 1: 
-                        do
+                    caso 1:
+
+                        if (denominador1 == denominador2)
                 {
-                    Console.Write("Por favor Digite la longitud de uno de los lados: ");
-                    dato1 = double.Parse(Console.ReadLine());
+                    result = $"{numerador1 + numerador2}/{denominador2}";
+                }
+                else
+                {
+                    result = $"{((numerador1 * denominador2) + (numerador2 * denominador1))}/{denominador2 * denominador1}";
+                }
 
-
-                    if (dato1 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
-
-                } while (ejercicio1 < 0);
-
-                Console.Write($"\nResultado: {Math.Pow(dato1, 3)}");
                 break;
 
-                cs 2:
-                        do
+                caso 2:
+                        if (denominador1 == denominador2)
                 {
-                    Console.Write("Por favor Digite el radio de la Esfera: ");
-                    dato1 = double.Parse(Console.ReadLine());
+                    result = $"{numerador1 - numerador2}/{denominador2}";
+                }
+                else
+                {
+                    result = $"{((numerador1 * denominador2) - (numerador2 * denominador1))}/{denominador2 * denominador1}";
+                }
 
-
-                    if (ejercicio1 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
-
-                } while (ejercicio1 < 0);
-
-                Console.Write($"\nResultado: {4 / 3 * Math.PI * (Math.Pow(dato1, 3))}");
                 break;
 
-                cs 3:
-                        do
-                {
-                    Console.Write("Por favor Digite la radio del Cono: ");
-                    ejercicio1 = double.Parse(Console.ReadLine());
+                caso 3:
 
+                          result = $"{numerador1 * numerador2}/{denominador2 * denominador1}";
 
-                    if (ejercicio1 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
+                break;
+                caso 4:
 
-                } while (ejercicio1 < 0);
-
-                do
-                {
-                    Console.Write("Por favor Digite la altura del Cono: ");
-                    ejercicio2 = double.Parse(Console.ReadLine());
-
-
-                    if (ejercicio2 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
-
-                } while (ejercicio2 < 0);
-
-                Console.Write($"\nResultado: {(Math.PI * Math.Pow(dato1, 2) * dato2) / 3}");
+                        result = $"{(numerador1 * denominador2)}/{(numerador2 * denominador1)}";
                 break;
 
-                cs 4:
-                        do
-                {
-                    Console.Write("Por favor Digite  la altura de la Piramide: ");
-                    ejercicio1 = double.Parse(Console.ReadLine());
-
-
-                    if (ejercicio1 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
-
-                } while (ejercicio1 < 0);
-
-                do
-                {
-                    Console.Write("Por favor Digite la longitud de uno de los lado de la Piramide: ");
-                    ejercicicio2 = double.Parse(Console.ReadLine());
-
-
-                    if (dato2 < 0)
-                    {
-                        Console.Write("\nError: Número negativo...\n");
-                    }
-
-                } while (dato2 < 0);
-
-                Console.Write($"\nResultado: {(ejercicio1 * ejercicio2 * ejercicio2) / 3}");
-                break;
             }
 
-                if (opcion < 1 || opcion > 4)
+                if (opcion < 1 || opcion > 6)
             {
-                Console.Write("\nError: *****No existe esa opción****\n");
+                Console.Write("\nError: No existe esa opción...\n");
+            }
+            else
+            {
+                Console.Write($"\nResultado: {result}");
             }
 
-        } while (opcion< 1 || opcion> 4);
+        } while (opcion< 1 || opcion> 6);
 
             Console.ReadKey();
         }
