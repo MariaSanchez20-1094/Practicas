@@ -2,40 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
-namespace CalculoFactorial
+namespace Fibonacci
 {
     class Program
     {
         static void Main(string[] args)
         {
-            int num;
-            Console.WriteLine("Calcular el Factorial de un número \n");
-            do
+
+            int a, b, limite, i, auxiliar;
+            Console.WriteLine("Digitar el número de numeros de Fibonacci que desea mostrar");
+            limite = int.Parse(Console.ReadLine());
+            a = 0;
+            b = 1;
+            for (i = 0; i < limite; i++)
             {
-                Console.Write("Digite un número : ");
-                num = int.Parse(Console.ReadLine());
-                verificar(num);
-            } while (num < 0);
-            factorial(num);
+                auxiliar = a;
+                a = b;
+                b = auxiliar + a;
+                Console.WriteLine(a);
+            }
             Console.ReadKey();
-        }
-        static void verificar(int n)
-        {
-            if (n < 0)
-            {
-                Console.Write("\n No existe el factorial de un número\n");
-            }
-        }
-        static void factorial(int n)
-        {
-            int fact = 1;
-            for (int i = 1; i <= n; i++)
-            {
-                fact *= i;
-            }
-            Console.WriteLine("\nEl Factorial de " + n + " es: " + fact);
         }
     }
 }
